@@ -1,0 +1,105 @@
+
+.header {
+  width: 100%;
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 5%;
+  background: #ffffff;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 26px);
+}
+
+.header nav a,
+.header .linkbutton {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header .hamburger {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .header {
+    position: relative;
+    min-height: 76px;
+  }
+
+  .header .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: #09234b;
+    cursor: pointer;
+    z-index: 102;
+  }
+
+  .header #main-navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px 24px 24px;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+  }
+
+  .header #main-navigation.open {
+    display: flex;
+  }
+
+  .header #main-navigation a,
+  .header #main-navigation .linkbutton {
+    display: block;
+    width: 100%;
+    padding: 14px 12px;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    color: #09234b;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .header .topcta {
+    display: none;
+  }
+}
