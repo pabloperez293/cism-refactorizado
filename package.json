@@ -1,0 +1,12 @@
+{
+  "name": "cism-web",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "server": "npm run start --prefix backend",
+    "build": "npm run build --prefix frontend",
+    "test": "npm run test --prefix backend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend"
+  }
+}

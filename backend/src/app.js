@@ -1,0 +1,2 @@
+import express from 'express';import cors from 'cors';import helmet from 'helmet';import {rateLimit} from 'express-rate-limit';import api from './routes/api.routes.js';
+export const app=express();app.use(helmet());app.use(cors({origin:process.env.FRONTEND_ORIGIN||'http://localhost:5173'}));app.use(express.json({limit:'100kb'}));app.use('/api',rateLimit({windowMs:15*60*1000,limit:100,standardHeaders:'draft-7',legacyHeaders:false}),api);app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Error interno del servidor'})});

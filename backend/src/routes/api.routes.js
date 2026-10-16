@@ -1,0 +1,2 @@
+import {Router} from 'express';import {createAssessment,listQuestions} from '../controllers/assessment.controller.js';import {createContact} from '../controllers/contact.controller.js';
+const router=Router();router.get('/health',(_,res)=>res.json({ok:true}));router.get('/questions',listQuestions);router.post('/assessments',createAssessment);router.post('/contacts',createContact);export default router;

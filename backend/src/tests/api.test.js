@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {app} from '../app.js';
+test('GET /api/health responde correctamente',async()=>{const server=app.listen(0);try{const {port}=server.address();const response=await fetch(`http://127.0.0.1:${port}/api/health`);assert.equal(response.status,200);assert.deepEqual(await response.json(),{ok:true})}finally{server.close()}});
+test('GET /api/questions no revela respuestas',async()=>{const server=app.listen(0);try{const {port}=server.address();const response=await fetch(`http://127.0.0.1:${port}/api/questions`);const {questions}=await response.json();assert.equal(questions.length,60);assert.ok(questions.every(q=>!('answer' in q)))}finally{server.close()}});
